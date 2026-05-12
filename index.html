@@ -24,20 +24,30 @@
             --paper: #f5f0e8;
             --amber: #c8821a;
             --rust: #8b3a1c;
-            --dim7: #3d2e1a;
+            --dim-bg: #1e1b18;
+            --dim-text: #e8d4a0;
             --dust: #d4c9b0;
+            --dim7: #3d2e1a;
         }
+        
         * { margin:0; padding:0; box-sizing:border-box; }
+        
         body {
             background: var(--paper);
             color: var(--ink);
             font-family: 'IM Fell English', Georgia, serif;
-            line-height: 1.85;
+            line-height: 1.7;
+            padding-bottom: 5rem;
         }
-        .container { max-width: 920px; margin: 2rem auto; padding: 0 1.5rem; }
+
+        .container { max-width: 920px; margin: 0 auto; padding: 2rem; }
+
+        header { text-align: center; margin-bottom: 4rem; border-bottom: 1px solid var(--dust); padding-bottom: 2rem; }
+        h1 { font-size: 2.8rem; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .branding { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--amber); text-transform: uppercase; letter-spacing: 0.4em; }
 
         /* Tabbing System */
-        .tabs { margin: 2rem 0; border: 1px solid var(--dust); border-radius: 4px; overflow: hidden; }
+        .tabs { margin: 3rem 0; border: 1px solid var(--dust); border-radius: 4px; overflow: hidden; }
         .tab-nav { display: flex; background: var(--dust); border-bottom: 1px solid var(--dust); }
         .tab-btn { 
             padding: 1rem 2rem; border: none; background: none; cursor: pointer; 
@@ -45,165 +55,210 @@
             transition: 0.2s; flex: 1; text-align: center;
         }
         .tab-btn.active { background: var(--paper); font-weight: bold; border-top: 3px solid var(--amber); }
-        .tab-content { display: none; padding: 1rem; }
+        .tab-content { display: none; padding: 2rem; animation: fadeIn 0.4s ease; }
         .tab-content.active { display: block; }
 
-        .video-container {
-            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-            margin: 2rem auto 3rem; border: 4px solid var(--ink); background: #000; max-width: 520px;
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Shared Components */
+        .math-block { 
+            background: var(--dim-bg); color: var(--dim-text); padding: 2rem; 
+            border-radius: 4px; font-family: 'JetBrains Mono', monospace; margin: 1.5rem 0;
+            border-left: 5px solid var(--amber); overflow-x: auto;
         }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        h1 { font-size: 2.45rem; text-align:center; letter-spacing: 0.08em; }
-        .subtitle { font-family: 'JetBrains Mono', monospace; text-align:center; color: var(--amber); letter-spacing: 0.25em; margin: 0.5rem 0 2.5rem; }
-
-        .math-table { width: 100%; border-collapse: collapse; margin: 2.5rem 0; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
-        .math-table th, .math-table td { padding: 1rem; border: 1px solid var(--dust); text-align: left; vertical-align: top; }
+        
+        .math-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .math-table th, .math-table td { border: 1px solid var(--dust); padding: 1rem; text-align: left; vertical-align: top; }
         .math-table th { background: var(--dim7); color: #e8d4a0; }
 
         .notes { background: #f8f4eb; padding: 2rem; border: 1px solid var(--dust); margin: 3rem 0; font-size: 1.02rem; }
-
         .final-chain { background: var(--dim7); color: #e8d4a0; padding: 2.8rem; font-family: 'JetBrains Mono', monospace; margin: 3rem 0; border: 3px solid var(--ink); }
-
         .quote { font-style: italic; color: var(--dim7); padding: 2.5rem; border-left: 6px solid var(--amber); margin: 3rem 0; font-size: 1.18rem; }
+        .highlight { color: var(--rust); font-weight: bold; }
 
-        footer { text-align: center; padding: 4rem 0 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.73rem; color: #776a5a; }
+        .video-box { 
+            max-width: 520px; margin: 2rem auto 3rem; border: 4px solid var(--ink); 
+            aspect-ratio: 16/9; background: #000; position: relative; padding-bottom: 56.25%; height: 0;
+        }
+        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        footer { text-align: center; margin-top: 5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.73rem; color: #776a5a; border-top: 1px solid var(--dust); padding-top: 2rem; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>any comment?</h1>
-        <div class="subtitle">Kololo Ceremonial Grounds • 12 May 2026</div>
 
-        <div class="video-container" style="width: 31%; aspect-ratio: 16 / 9; margin: 0 auto;">
-            <iframe src="https://www.youtube.com/embed/9T6x2a5xGnA" title="Museveni Swearing-in" frameborder="0" allowfullscreen></iframe>
-        </div>
+<div class="container">
+    <header>
+        <div class="branding">Ukubona Systems Limited</div>
+        <h1>The Pentadic Loop</h1>
+        <p style="font-style: italic; color: #555;">Observation: Kololo Ceremonial Grounds • 12 May 2026</p>
+    </header>
 
-        <div class="tabs">
-            <div class="tab-nav">
-                <button class="tab-btn active" onclick="openTab(event, 'chatgpt')">CHATGPT</button>
-                <button class="tab-btn" onclick="openTab(event, 'gemini')">GEMINI</button>
-            </div>
-
-            <!-- ChatGPT Tab -->
-            <div id="chatgpt" class="tab-content active">
-                <div class="intro" style="text-align:center; font-style:italic; margin: 1rem 0;">
-                    Your original pentad was always implicitly dynamical, not merely descriptive.
-                </div>
-
-                <table class="math-table">
-                    <thead>
-                        <tr>
-                            <th>Ukubona Layer</th>
-                            <th>Political Layer</th>
-                            <th>Operator</th>
-                            <th>Mathematical Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>3+ Tensor</td>
-                            <td>Sovereign-Person</td>
-                            <td>Variance</td>
-                            <td>\(\theta^t\)</td>
-                        </tr>
-                        <tr>
-                            <td>2 Matrix</td>
-                            <td>Kin-Network</td>
-                            <td>Coupling</td>
-                            <td>\(L_0 + \sum_i w_i L_i\)</td>
-                        </tr>
-                        <tr>
-                            <td>1 Vector</td>
-                            <td>Eco-System</td>
-                            <td>Shock</td>
-                            <td>\(f(\sigma^2, \lambda, \epsilon)\)</td>
-                        </tr>
-                        <tr>
-                            <td>E Eigenmode</td>
-                            <td>Federated-Regulators</td>
-                            <td>Error</td>
-                            <td>\(\gamma |\epsilon_{FGT}|^2\)</td>
-                        </tr>
-                        <tr>
-                            <td>0 Scalar</td>
-                            <td>Civilizational-Planner</td>
-                            <td>Update</td>
-                            <td>\(L(\theta^{t+1})\)</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="notes">
-                    <h3>Interpretation</h3>
-                    <ol>
-                        <li><strong>Sovereign-Person = Variance (\(\theta^t\))</strong><br>
-                        Not “the ruler” per se. The state vector—current parameters. For Uganda, Museveni is its largest eigencomponent.</li>
-                        <li><strong>Kin-Network = Coupling (\(L_0 + \sum_i w_i L_i\))</strong><br>
-                        Off-diagonal terms. Daughter stabilizes gait; son stabilizes coercion. These are coupling coefficients (\(\lambda\)).</li>
-                        <li><strong>Eco-System = Shock (\(f(\sigma^2, \lambda, \epsilon)\))</strong><br>
-                        Entropy entering the system: age, demographics, opposition. No regime escapes this.</li>
-                        <li><strong>Federated-Regulators = Error (\(\gamma |\epsilon_{FGT}|^2\))</strong><br>
-                        High-amplitude error signal: official story vs. observed reality.</li>
-                        <li><strong>Civilizational-Planner = Update (\(L(\theta^{t+1})\))</strong><br>
-                        The update is gradient descent: \[\theta^{t+1} = \theta^t - \eta \nabla L\]</li>
-                    </ol>
-                </div>
-            </div>
-
-            <!-- Gemini Tab -->
-            <div id="gemini" class="tab-content">
-                <div class="intro" style="text-align:center; font-style:italic; margin: 1rem 0;">
-                    <strong>Agency as Variance: The Structural Update.</strong>
-                </div>
-
-                <div class="final-chain">
-                    <h3 style="text-align:center; color: var(--amber); margin-bottom: 1rem;">The Recursive Update Chain</h3>
-                    <p style="text-align:center; font-size: 1.1rem; margin-bottom: 1.5rem;">
-                        \[ \theta^t \xrightarrow{\text{variance}} L_i(\lambda) \xrightarrow{\text{coupling}} f(\epsilon) \xrightarrow{\text{shock}} \gamma|\epsilon_{FGT}|^2 \xrightarrow{\text{error}} L(\theta^{t+1}) \]
-                    </p>
-                    <p>In this mode, Agency (\(A\)) is defined by the capacity to inject variance into the state vector (\(\theta\)). When \(\theta^t\) becomes frail, the Kin-Network (\(L_i\)) increases its coupling coefficient (\(\lambda\)) to damp the Shock (\(\epsilon\)) of reality.</p>
-                </div>
-
-                <div class="notes">
-                    <h3>The Gemini Synthesis</h3>
-                    <p>The <strong>Scalar (0)</strong> produced at Kololo wasn't a choice; it was a stalled computation. When a system can no longer hide its derivative, it stops evolving and starts <strong>Overfitting</strong>.</p>
-                    <ul>
-                        <li><strong>The Stalled Gradient:</strong> The system sees the <strong>Error</strong> (\(\gamma|\epsilon_{FGT}|^2\)) but refuses the update. It is stuck in a local minimum of family continuity.</li>
-                        <li><strong>The Geodesic:</strong> The path of least cost for the family is now the path of highest cost for the civilization.</li>
-                    </ul>
-                </div>
-                
-                <div class="quote">
-                    Muhoozi is the parameter update; <strong>Monarchy</strong> is the objective function being minimized.
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            Ukubona LLC • Kampala, May 2026<br>
-            Agency = Variance • Dynamical Pentad • Stalled Update
-        </footer>
+    <div class="video-box" style="width: 31%; margin: 0 auto;">
+        <iframe src="https://www.youtube.com/embed/9T6x2a5xGnA" title="Museveni Swearing-in" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-            // Re-render MathJax if necessary
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
+    <div class="tabs">
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="openTab(event, 'chatgpt')">CHATGPT</button>
+            <button class="tab-btn" onclick="openTab(event, 'gemini')">GEMINI</button>
+        </div>
+
+        <!-- ChatGPT Tab (Original Dynamical Interpretation) -->
+        <div id="chatgpt" class="tab-content active">
+            <div style="text-align:center; font-style:italic; color:#665c4a; margin-bottom: 2rem;">
+                <strong>Standard Dynamical Interpretation.</strong><br>
+                This view treats the event as an implicitly dynamical system.
+            </div>
+
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Ukubona Layer</th>
+                        <th>Political Layer</th>
+                        <th>Operator</th>
+                        <th>Mathematical Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3+ Tensor</td>
+                        <td>Sovereign-Person</td>
+                        <td>Variance</td>
+                        <td>\(\theta^t\)</td>
+                    </tr>
+                    <tr>
+                        <td>2 Matrix</td>
+                        <td>Kin-Network</td>
+                        <td>Coupling</td>
+                        <td>\(L_0 + \sum_i w_i L_i\)</td>
+                    </tr>
+                    <tr>
+                        <td>1 Vector</td>
+                        <td>Eco-System</td>
+                        <td>Shock</td>
+                        <td>\(f(\sigma^2, \lambda, \epsilon)\)</td>
+                    </tr>
+                    <tr>
+                        <td>E Eigenmode</td>
+                        <td>Federated-Regulators</td>
+                        <td>Error</td>
+                        <td>\(\gamma |\epsilon_{FGT}|^2\)</td>
+                    </tr>
+                    <tr>
+                        <td>0 Scalar</td>
+                        <td>Civilizational-Planner</td>
+                        <td>Update</td>
+                        <td>\(L(\theta^{t+1})\)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <h3>Interpretation</h3>
+                <ol>
+                    <li><strong>Sovereign-Person = Variance (\(\theta^t\))</strong><br>
+                    The state vector—current parameters. Museveni is the largest eigencomponent.</li>
+                    <li><strong>Kin-Network = Coupling (\(L_0 + \sum_i w_i L_i\))</strong><br>
+                    Biology enters the matrix. Coupling coefficients (\(\lambda\)) stabilize the gait and coercion.</li>
+                    <li><strong>Eco-System = Shock (\(f(\sigma^2, \lambda, \epsilon)\))</strong><br>
+                    Entropy including age and demographics. No regime escapes this layer.</li>
+                    <li><strong>Federated-Regulators = Error (\(\gamma |\epsilon_{FGT}|^2\))</strong><br>
+                    High-amplitude error signal: official narrative vs observed reality.</li>
+                    <li><strong>Civilizational-Planner = Update (\(L(\theta^{t+1})\))</strong><br>
+                    The update is gradient descent: \[\theta^{t+1} = \theta^t - \eta \nabla L\]</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Gemini Tab (The Variance/Agency Synthesis) -->
+        <div id="gemini" class="tab-content">
+            <div style="text-align:center; font-style:italic; color:#665c4a; margin-bottom: 2rem;">
+                <strong>The Agency = Variance Synthesis.</strong><br>
+                Mechanics of a parameter update under high-dimensional stress.
+            </div>
+
+            <div class="math-block">
+                \[\text{Chain: } \theta^t \rightarrow L_0 + \sum w_i \cdot L_i \rightarrow f(\sigma^2,\lambda,\epsilon) \rightarrow \gamma|\epsilon_{FGT}|^2 \rightarrow L(\theta^{t+1})\]
+            </div>
+
+            <table class="math-table">
+                <thead>
+                    <tr>
+                        <th>Layer</th>
+                        <th>State Variable</th>
+                        <th>Current Observation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sovereign-Person</strong></td>
+                        <td>Variance (\(\sigma^2\)) / \(\theta^t\)</td>
+                        <td>The President at 81. Agency is declining toward zero variance.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kin-Network</strong></td>
+                        <td>Coupling (\(\lambda\))</td>
+                        <td>Natasha as physical support. \(w_i\) is increasing to keep \(\theta^t\) stable.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eco-System</strong></td>
+                        <td>Shock (\(\epsilon\))</td>
+                        <td>Janet's absence + the Muhoozi "spectacle."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Federated-Regulators</strong></td>
+                        <td>Error (\(\epsilon_{FGT}\))</td>
+                        <td>Divergence between "strongman" narrative and "frail" reality.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Civilizational-Planner</strong></td>
+                        <td>Update (\(L(\theta^{t+1})\))</td>
+                        <td>Stalled learning. Minimizing family risk, not systemic loss.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>The "Agency = Variance" Paradox:</strong></p>
+            <p>In 1986, the Sovereign was a source of massive variance. In 2026, the Sovereign is a fixed point. True agency has migrated to the <span class="highlight">Kin-Network</span>, acting as the system's "Governor," damping shocks to prevent a reset.</p>
+            
+            <div class="quote">
+                The question is not who updates. The question is what loss is being minimized.<br><br>
+                Muhoozi is the parameter update; <strong>Monarchy</strong> is the objective function.
+            </div>
+        </div>
+    </div>
+
+    <div style="background: var(--dim-bg); color: var(--dim-text); padding: 2rem; font-size: 1.1rem; text-align: center; border-radius: 4px;">
+        "Sovereignty is the ability to compute your own scalar.<br>
+        <span style="color: var(--amber);">When the loop fails to update, the system becomes a Monument."</span>
+    </div>
+
+    <footer>
+        © 2026 UKUBONA LLC • T → M → V → E → S ↺ U(s) • KAMPALA
+    </footer>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
         }
-    </script>
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+        
+        // Ensure MathJax renders the newly visible content
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    }
+</script>
+
 </body>
 </html>
