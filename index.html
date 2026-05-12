@@ -25,16 +25,17 @@
             font-family: 'IM Fell English', Georgia, serif;
             line-height: 1.85;
         }
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+        .container { max-width: 920px; margin: 2rem auto; padding: 0 1.5rem; }
 
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            margin: 2rem 0 3rem;
+            margin: 2rem auto 3rem;
             border: 4px solid var(--ink);
             background: #000;
+            max-width: 520px;
         }
         .video-container iframe {
             position: absolute;
@@ -42,8 +43,10 @@
             width: 100%; height: 100%;
         }
 
-        h1 { font-size: 2.4rem; text-align:center; letter-spacing: 0.08em; }
-        .subtitle { font-family: 'JetBrains Mono', monospace; text-align:center; color: var(--amber); letter-spacing: 0.25em; margin: 0.5rem 0 2rem; }
+        h1 { font-size: 2.45rem; text-align:center; letter-spacing: 0.08em; }
+        .subtitle { font-family: 'JetBrains Mono', monospace; text-align:center; color: var(--amber); letter-spacing: 0.25em; margin: 0.5rem 0 2.5rem; }
+
+        .intro { text-align:center; font-style:italic; color:#665c4a; margin: 2rem 0 3rem; }
 
         .math-table {
             width: 100%;
@@ -52,7 +55,7 @@
             font-family: 'JetBrains Mono', monospace;
         }
         .math-table th, .math-table td {
-            padding: 1.1rem 1rem;
+            padding: 1rem;
             border: 1px solid var(--dust);
             text-align: left;
             vertical-align: top;
@@ -60,6 +63,14 @@
         .math-table th {
             background: var(--dim7);
             color: #e8d4a0;
+        }
+
+        .notes {
+            background: #f8f4eb;
+            padding: 2rem;
+            border: 1px solid var(--dust);
+            margin: 3rem 0;
+            font-size: 1.02rem;
         }
 
         .final-chain {
@@ -70,7 +81,7 @@
             margin: 3rem 0;
             border: 3px solid var(--ink);
         }
-        .layer { margin-bottom: 1.6rem; }
+        .layer { margin-bottom: 2rem; }
         .layer-label {
             color: var(--amber);
             letter-spacing: 0.2em;
@@ -82,10 +93,10 @@
         .quote {
             font-style: italic;
             color: var(--dim7);
-            padding: 2.2rem;
+            padding: 2.5rem;
             border-left: 6px solid var(--amber);
             margin: 3rem 0;
-            font-size: 1.15rem;
+            font-size: 1.18rem;
         }
 
         footer {
@@ -114,10 +125,10 @@
             </iframe>
             </div>
 
-        <h2 style="text-align:center; margin:2rem 0 1.5rem;">Dynamical Correction</h2>
-        <p style="text-align:center; font-style:italic; color:#665c4a;">
+        <div class="intro">
+            <strong>Gemini’s addition is the right correction. It closes the loop.</strong><br>
             Your original pentad was always implicitly dynamical, not merely descriptive.
-        </p>
+        </div>
 
         <!-- Control-Theoretic Table -->
         <table class="math-table">
@@ -158,48 +169,92 @@
                     <td>0 Scalar</td>
                     <td>Civilizational-Planner</td>
                     <td>Update</td>
-                    <td>\(L(\theta^{t+1})\) — Gradient Descent</td>
+                    <td>\(L(\theta^{t+1})\)</td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="final-chain">
-            <h2 style="text-align:center; margin-bottom:1.8rem; color:#e8d4a0;">Current Ugandan State</h2>
-            
-            <div class="layer">
-                <div class="layer-label">Error Term</div>
-                <p>Official story (\(\theta^t\)) = “Vigorous Patriarch”<br>
-                Observed reality = Daughter physically guiding frail 81-year-old man<br>
-                → High-amplitude \(\gamma |\epsilon_{FGT}|^2\)</p>
-            </div>
+        <!-- Full Detailed Notes -->
+        <div class="notes">
+            <h3>Interpretation</h3>
+            <ol>
+                <li><strong>Sovereign-Person = Variance (\(\theta^t\))</strong><br>
+                Not “the ruler” per se. The state vector — current parameters of the system. For Uganda, Museveni (agent extraordinaire) dominates that eigenvector resonating at his frequency for 40y, but it includes legitimacy, army loyalty, fiscal capacity, oil expectations, public fear, etc. He is its largest eigencomponent.</li>
 
-            <div class="layer">
-                <div class="layer-label">System Response</div>
-                <p>Kin-Network increasing coupling strength \(\lambda\) instead of performing update.<br>
-                Result: Overfitting to family manifold → <strong>Stalled learning</strong></p>
-            </div>
+                <li><strong>Kin-Network = Coupling (\(L_0 + \sum_i w_i L_i\))</strong><br>
+                Exactly the off-diagonal terms. This is where biology enters the matrix:<br>
+                • daughter stabilizes gait<br>
+                • son stabilizes coercion<br>
+                • spouse historically stabilized legitimacy<br><br>
+                Those are coupling coefficients. The stronger the coupling (\(\lambda\)), the harder the perturbation needed to break coherence.</li>
 
-            <div class="layer">
-                <div class="layer-label">The Open Question (?)</div>
-                <p>Will the system compute \(\theta^{t+1}\)?</p>
-                <p style="margin-top:0.8rem;">
-                    → Clean dynastic transfer (\(\theta^{t+1} \approx\) Muhoozi)<br>
-                    → Symbolic continuity (\(\theta^{t+1} = \theta^t\))<br>
-                    → Bifurcation (\(\theta^{t+1}\) outside family manifold)
-                </p>
-            </div>
+                <li><strong>Eco-System = Shock (\(f(\sigma^2, \lambda, \epsilon)\))</strong><br>
+                Shock includes: age, disease, demographics, TikTok, opposition, debt, oil delays, regional instability. This is where reality enters. No regime escapes this layer.</li>
+
+                <li><strong>Federated-Regulators = Error (\(\gamma |\epsilon_{FGT}|^2\))</strong><br>
+                “FGT” = Federated Ground Truth. Today’s error term: official story = “vigorous patriarch” vs observed reality = “daughter physically assisting a frail old man”. Residual = large. That’s why the clip matters. It is a high-amplitude error signal.</li>
+
+                <li><strong>Civilizational-Planner = Update (\(L(\theta^{t+1})\))</strong><br>
+                The update is gradient descent:<br>
+                \[\theta^{t+1} = \theta^t - \eta \nabla L\]<br><br>
+                Healthy democracies see error, update parameters, rotate leadership, reduce loss.<br>
+                Monarchic systems deny error, increase coupling, suppress observation, keep \(\theta^t\).<br>
+                That’s stalled learning. Not dictatorship. Overfitting.
+            </ol>
+
+            <p><strong>Uganda now</strong><br>
+            The actual chain is:<br>
+            \[\theta^t \rightarrow L_0 + \sum_i w_i L_i \rightarrow f(\sigma^2,\lambda,\epsilon) \rightarrow \gamma|\epsilon_{FGT}|^2 \rightarrow ?\]</p>
+
+            <p>That <strong>?</strong> is the entire story.</p>
         </div>
+
+        <div class="final-chain">
+    <h2 style="text-align:center; margin-bottom:1.8rem;">The Real Question</h2>
+
+    <p>Not:</p>
+    <p style="text-align:center; font-size:1.2rem;">
+        \(\theta^{t+1} = ?\)
+    </p>
+
+    <p>That is merely personnel.</p>
+
+    <p>The deeper question is:</p>
+    <p style="text-align:center; font-size:1.35rem; color: var(--amber);">
+        \(L(\theta^{t+1}) = ?\)
+    </p>
+
+    <p>What objective function is being optimized after the update?</p>
+
+    <ul>
+        <li><strong>Dynastic loss:</strong> preserve family continuity</li>
+        <li><strong>Regime loss:</strong> minimize transition instability</li>
+        <li><strong>Institutional loss:</strong> suppress adaptive learning</li>
+        <li><strong>Civilizational loss:</strong> drift toward monarchy</li>
+    </ul>
+
+    <p style="margin-top:1.5rem;">
+        Muhoozi may be the parameter.<br>
+        <strong>Monarchy is the loss function.</strong>
+    </p>
+</div>
 
         <div class="quote">
-            A daughter helping an old man walk is trivial.<br><br>
-            But as an error term, it is huge.<br>
-            The system can no longer hide its own derivative.<br><br>
-            That is the eigenmode.
-        </div>
+    A daughter helping an old man walk is trivial.<br><br>
+
+    But as an error term, it is huge.<br>
+    The system can no longer hide its derivative.<br><br>
+
+    The question is not who updates.<br>
+    The question is what loss is being minimized.<br><br>
+
+    Muhoozi may be the parameter.<br>
+    Monarchy is the objective function.
+</div>
 
         <footer>
             Ukubona LLC • Kampala, May 2026<br>
-            Agency = Variance • Stalled Update in Progress
+            Agency = Variance • Dynamical Pentad • Stalled Update
         </footer>
     </div>
 </body>
